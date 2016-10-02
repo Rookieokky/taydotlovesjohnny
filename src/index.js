@@ -15,19 +15,19 @@ class App extends Component {
 	constructor(props) {
 		super(props);
 
-		this.state = { 
+		this.state = {
 			videos: [],
 			selectedVideo: null
 		};
 
-		this.videoSearch('surfboards');
+		this.videoSearch('beenlightyearsahead');
 	}
 
 	videoSearch(term) {
 		YTSearch({key: API_KEY, term: term}, (videos) => {
-			this.setState({ 
+			this.setState({
 				videos: videos,
-				selectedVideo: videos[0] 
+				selectedVideo: videos[0]
 			});
 		});
 	}
@@ -40,12 +40,12 @@ class App extends Component {
 			<div>
 				<SearchBar onSearchTermChange={videoSearch} />
 				<VideoDetail video={this.state.selectedVideo}/>
-				<VideoList 
+				<VideoList
 					onVideoSelect={selectedVideo => this.setState({selectedVideo})}
 					videos={this.state.videos} />
 			</div>
 		);
-	} 			
+	}
 };
 
 // Take this component's generated HTML and put it
